@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Cities\City;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,8 @@ Route::prefix('/safeCity')->group(function(){
         return 'denuncia';
     });
     
-    Route::get('/mapa-de-calor', function () {
-        return 'mapa de calor';
+    Route::get('/mapa-de-calor/{city}', function (City $city) {
+        return 'mapa de calor: ' .$city->value;
     });
 
     Route::get('/usuario/{userName}/perfil', function (string $userName) {
